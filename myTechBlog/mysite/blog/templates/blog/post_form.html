@@ -1,0 +1,33 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+<div class="header">
+  <!--tab- content---->
+  <div class="header-content">
+    <h1>POST</h1>
+    <p>my supercool blog</p>
+  </div>
+
+</div>
+
+<div class="content container" style="margin-top: 100px;">
+    <div class="content-block">
+      <div class="blog_posts">
+        <div class="container post-form">
+          <h1 class="headings display-3">New post</h1>
+          <hr>
+          <form method="POST" class="post-form" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{form.as_p}}
+          <button type="submit" class="save btn btn-default">Save</button>
+          </form>
+
+          <script>var editor = new MediumEditor('.editable');</script>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

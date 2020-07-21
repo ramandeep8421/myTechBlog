@@ -1,0 +1,67 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<div class="header">
+  <!--tab- content---->
+  <div class="header-content">
+    <h1>News</h1>
+    <p>my supercool blog</p>
+  </div>
+
+</div>
+<!--news---->
+<div class="container">
+
+ <div class="row">
+   <div id="newsResults">
+   </div>
+
+   <div id = "loader">
+     <div class="progress">
+       <div class="indeterminate">
+       </div>
+     </div>
+
+   </div>
+ </div>
+
+</div>
+<script>
+  $(document).ready(function(){
+    let url = "http://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=de1917a736a946658c36c3a0a11aa8ce";
+
+    $.ajax({
+      url: url,
+      method: "GET",
+      dataType: "Json",
+      beforeSend: function(){
+        $(".progress").show();
+      },
+
+      complete:function(){
+        $.("progress").hide();
+      },
+
+      success: function(news){
+        let output = "";
+        let latestNews = news.articles;
+
+        for(var i n latestNews){
+          output += `
+          <div class = "col 13 m6 s12">
+            <h3>${latestNews[i].title}</h3>
+          </div>
+          `;
+        }
+
+        if(output !== ""){
+          $("#newsResults").html(output);
+        }
+      },
+
+      })
+  });
+</script>
+
+{% endblock %}

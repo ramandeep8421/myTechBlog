@@ -1,0 +1,114 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="header">
+  <!--tab-content---->
+<div class="header-content">
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="content container" style="margin-top: 100px;">
+    <div class="content-block">
+      <div class="blog_posts">
+        <div class="contact-style">
+            <div class="container">
+
+        <hr>
+            <h1 class = "headings display-3">contact me<br></h1>
+            <hr>
+
+              <div class="container">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <form method="POST">
+                          {{ form.as_p}}
+                          {% csrf_token %}
+                          <input class="btn btn-primary"type="submit" name="send" value="send">
+                      </form>
+                    </div>
+
+                    <div class="col-lg-4" style="margin-top: 20px; ">
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3401.213198507743!2d75.96843191493704!3d31.51830388137029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391ae3c77ed7b187%3A0x7e1e97621f579c17!2sPanjab%20University%20Swami%20Sarvanand%20Giri%20Regional%20Centre!5e0!3m2!1sen!2sin!4v1592483134730!5m2!1sen!2sin" width="500" height="500" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+                    </div>
+                </div>
+
+        <hr>
+                <div class="tips">
+                  <h1 class = "headings display-4">About topics like</h1>
+                  <hr>
+                  <h2>News tips</h2>
+        <hr>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <img src="{% static 'images/about/news.jpg'%}" class = "w-100" alt="">
+                  </div>
+                  <div class="col-md-6">
+                    <p class = "paras">Got a news tip or inside information about a topic we covered? We’d love to hear from you. Please drop us a note here in the form
+
+          We respect anonymity;
+          Please don’t use this email address to submit information about your company. We ask that you use the form instead.</p>
+                  </div>
+                </div>
+
+        <hr>
+                <h2>Event advertise</h2>
+        <hr>
+                <div class="row">
+                  <div class="col-md-6">
+                    <img src="{% static 'images/about/advertise.jpg'%}" class = "w-100" alt="">
+                  </div>
+                  <div class="col-md-6">
+                    <p>If there is some Technical event in the university or anywhere and you want to
+                    publicize on my Blog then please give me a chance and send your material and
+                  information at this <a href = "mailto:ramandeep8421@gmail.com">ramandeep8421@gmail.com</a></p>
+            </p>
+
+                  </div>
+                </div>
+        <hr>
+        <h2>Webapp suggesions & Error Reports</h2>
+        <hr>
+
+        <div class="row">
+          <div class="col-md">
+            <img src="{% static 'images/about/error.jpg'%}" class = "w-100" alt="">
+
+          </div>
+          <div class="col-md">
+            Please provide any suggestions or feedback on improving our site here. If you are experiencing problems with the site, please email us at <a href="mailto:ramandeep8421@gmail.com">ramandeep8421@gmail.com</a>
+          </div>
+
+        </div>
+        <hr>
+        <div class = "contact-nav">
+          <ul>
+            <li><a href="{% url 'post_list' %}">Home/</a></li>
+            <li><a href="{% url 'about' %}">About/</a></li>
+            <li><a href="#">signout</a></li>
+          </ul>
+        </div>
+          </div>
+
+          </div>
+        </div>
+        </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

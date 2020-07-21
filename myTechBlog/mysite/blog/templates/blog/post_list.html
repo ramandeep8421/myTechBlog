@@ -1,0 +1,198 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+<div class="header">
+  <!--tab- content---->
+  <div class="header-content">
+     <div class="row">
+       <div class="col-md">
+
+        <span class = "wel-text">
+
+           <h1 class = "animate-pop-in"><span class = "loader" style="margin-left:100px;">TECH_</span>HAWKS</h1>
+
+             <p class = "animate-pop-in"style="font-size: 20px; margin-top:150px; margin-right:120px; font-family: 'Russo'">The ultimate platform for blogging,<br>advertisement and to be updated<br> in the fields of technology and innovations.</p>
+             <div class="animate-pop-side">
+               <button onclick = "openNav()" type="button" class="btn btn-info" style="margin-right:120px; font-family:'Russo';">What is <span style = "color: cyan;">TECH_</span>HAWKS?</button>
+             </div>
+
+        </span>
+
+        <div id="mySidenav" class="sidenav">
+       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+       </div>
+       </div>
+       <div class="col-md">
+         <center>
+  <div class="perspective_container animate-pop-rightside">
+   <div class="table">
+    <div class="card slide_down">
+ 	  <img src="{% static 'images/tech/mobtech.jpg' %}"style="max-width:200px;height:auto:width:100%;"></img>
+ 	   <p>Welcome to a tech world</p>
+ 	 </div>
+ 	 <div class="menu">
+
+       <div class="item transition ">
+          Coding Challenges
+         </div>
+
+
+
+      <div class="item transition">
+       <a href=""></a>
+        Blogging</div>
+      <div class="item transition">News</div>
+      <div class="item transition">collaborate</div>
+    </div>
+   </div>
+  </div>
+ </center>
+
+ <!--DESCRIPTIVE TExt-->
+
+       </div>
+
+     </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+         <h1 class = "headings display-3" style="margin-left: 30px; margin-top: 200px;">Latest Posts</h1>
+         <hr>
+
+<div class="container">
+
+
+    <div class="row">
+
+      <div class="leftcolumn">
+
+        {% for post in post_list %}
+
+        <div class="cards posts ">
+          <h1>
+            <a href="{% url 'post_detail' pk=post.pk %}">
+                {{ post.title }}
+            </a>
+          </h1>
+
+          <div class="date">
+              <p>Published on: {{ post.published_date|date:"D M Y"}}</p>
+          </div>
+          <div class="imagefield">
+
+
+            <video  class ='img-responsive' controls>
+          <source src="{{ post.image.url }}" type="video/mp4">
+       <source src="movie.ogg" type="video/ogg">
+      Your browser does not support the video tag.
+    </video>
+
+
+              <img src="{{  post.image.url }}" class ='img-responsive'alt="">
+
+
+            </video>
+          </div>
+          <div class="blog-post__info">
+          <ul class = "blog_post__cta">
+            <li><a href="{% url 'post_detail' pk=post.pk %}" class = "btn btn-primary" role = "button">View</a></li>
+            <li>
+                <a class="btn btn-primary btn-comment" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
+            </li>
+            <li>   <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approve_comments.count }}</a></li>
+          </ul>
+          </div>
+        </div>
+
+        {% endfor %}
+
+      </div>
+
+      <div class="rightcolumn" style="font-family: 'Russo';">
+
+    <div class="cards" style="background: #16222A">
+      <h2>About me</h2>
+
+
+        <div class="profie-sidebar">
+          <img src="{% static 'images/about me/raman2.jpg' %}" width="200px" class = "profile-image" height="200px"alt="">
+          <ul class = "social-list">
+            <li class ="social-item">
+              <a aria-label = "dribble" class = "social-link" href="#"><i class="fa fa-twitter-square"></i></a>
+            </li>
+            <li class = "social-item">
+              <a  aria-label = "dribble" class = "social-link" href="#"><i class="fa fa-facebook-square"></i></a>
+            </li>
+            <li class = "social-item">
+              <a  aria-label = "dribble" class = "social-link" href="#"><i class="fa fa-instagram-square"></i></a>
+            </li>
+          </ul>
+
+        </div>
+        <div class="profile-main" style="color: white;">
+          <h2 class = "profile-name" style="color: white;">Ramandeep singh</h2>
+          <p class = "profile-position">Full stack developer</p>
+          <p class = "profile-body">
+           Hello! This is Ramandeep singh. i am a  competitive programmer , full stack DJANGO developer ,hackerearth
+           leader in data structures ,mathematics
+           and , I am a <strong>GOLD MEDALIST IN
+             MARTIAL ARTS(JAPNESE KARATE) </strong>and FOUNDER at <strong>TECH_HAWKS</strong>.
+          </p>
+        </div>
+
+    </div>
+    <div class="cards">
+      <h2>Ongoing events</h2>
+      <hr>
+      <div class="fakeimg">
+        <figure>
+          <img src="{% static 'images/tech/code.jpg' %}" alt="">
+          <figcaption>
+            <div class='line'>
+            <h3 class='pop-outin'style="font-family: 'Russo';">July long challenge</h3>
+            </div>
+          </figcaption>
+          <a class="btn btn-primary" target = "_blank" href="https://www.codechef.com/JULY20/?itm_medium=navmenu&itm_campaign=JULY20" role="button" style="margin:5px;">Rush now</a>
+        </figure>
+
+      </div><br>
+      <hr>
+      <div class="fakeimg">
+        <figure>
+          <img src="{% static 'images/tech/codeforces.png' %}" style="width: 200px; height: 150px;"alt="">
+          <figcaption>
+            <div class='line'>
+            <h3 class='pop-outin'style="font-family: 'Russo';">ICPC challenge</h3>
+            </div>
+          </figcaption>
+          <a class="btn btn-primary" target = "_blank" href="https://codeforces.com/contest/1378" role="button" style="margin:5px;">Rush now</a>
+        </figure>
+
+      </div><br>
+      <hr>
+
+    </div>
+    <!--<div class="cards">
+      <h3>Follow Me</h3>
+      <p>Some text..</p>
+    </div>-->
+
+      </div>
+
+    </div>
+
+
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
